@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="e991fcd0-f3de-4bcc-9cd3-7e9837baaf01" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/screens/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/screens/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/screens/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../nodeJS_Server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../nodeJS_Server/package-lock.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -18,13 +16,14 @@
     <session id="1734340765">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="1" />
           <entry key="project.open.time.5" value="1" />
           <entry key="project.opened" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="js" value="9" />
+          <entry key="js" value="10" />
           <entry key="json" value="4" />
           <entry key="ts" value="1" />
         </counts>
@@ -32,18 +31,18 @@
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="JSON" value="4" />
-          <entry key="JavaScript" value="9" />
+          <entry key="JavaScript" value="10" />
           <entry key="TypeScript" value="1" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="js" value="2935" />
+          <entry key="js" value="3807" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JavaScript" value="2935" />
+          <entry key="JavaScript" value="3807" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.js.language.service.starts">
@@ -58,20 +57,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/screens/Dashboard.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="263">
-              <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#25#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/navigation/AppNavigator.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="277">
-              <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
+            <state relative-caret-position="491">
+              <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -94,7 +81,20 @@
       <find>plus</find>
       <find>out of</find>
       <find>user1</find>
+      <find>&lt;modal</find>
+      <find>dashboard</find>
+      <find>4gb</find>
+      <find>add8GB</find>
+      <find>40000</find>
+      <find>30</find>
+      <find>databoost</find>
+      <find>4gbp</find>
+      <find>perfe</find>
+      <find>ProgressCircle</find>
     </findStrings>
+    <replaceStrings>
+      <replace>available</replace>
+    </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -105,8 +105,8 @@
         <option value="$PROJECT_DIR$/screens/SettingsScreen.js" />
         <option value="$PROJECT_DIR$/screens/dashboard.js" />
         <option value="$PROJECT_DIR$/navigation/AppNavigator.js" />
-        <option value="$PROJECT_DIR$/screens/Login.js" />
         <option value="$PROJECT_DIR$/screens/Dashboard.js" />
+        <option value="$PROJECT_DIR$/screens/Login.js" />
       </list>
     </option>
   </component>
@@ -126,7 +126,7 @@
       <path value="$PROJECT_DIR$/package.json" />
     </packageJsonPaths>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds">
     <option name="y" value="23" />
     <option name="width" value="1280" />
     <option name="height" value="731" />
@@ -153,6 +153,12 @@
             <path>
               <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
               <item name="frontend" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="images" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="frontend" type="b2602c69:ProjectViewProjectNode" />
+              <item name="frontend" type="462c0819:PsiDirectoryNode" />
               <item name="navigation" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -172,7 +178,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="SearchEverywhereHistoryKey" value="packa&#9;FILE&#9;file:///Users/Jeffrey/projects/react/telco-app/frontend/package.json&#10;login&#9;FILE&#9;file:///Users/Jeffrey/projects/react/telco-app/frontend/screens/Login.js" />
+    <property name="SearchEverywhereHistoryKey" value="logi&#9;FILE&#9;file:///Users/Jeffrey/projects/react/telco-app/frontend/screens/Login.js&#10;packa&#9;FILE&#9;file:///Users/Jeffrey/projects/react/telco-app/frontend/package.json&#10;login&#9;FILE&#9;file:///Users/Jeffrey/projects/react/telco-app/frontend/screens/Login.js" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -180,6 +186,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/assets" />
       <recent name="$PROJECT_DIR$" />
     </key>
@@ -210,7 +217,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-1" y="23" width="1280" height="730" extended-state="6" />
+    <frame x="0" y="23" width="1280" height="731" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="npm" side_tool="true" />
@@ -277,37 +284,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/assets/circle-sqaure-life-firebase-adminsdk-l6naa-b0625cc662.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="161">
-          <caret line="7" column="36" lean-forward="true" selection-start-line="7" selection-start-column="36" selection-end-line="7" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="325">
           <caret line="22" column="26" lean-forward="true" selection-start-line="22" selection-start-column="26" selection-end-line="22" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/navigation/AppNavigator.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="277">
-          <caret line="15" column="29" selection-start-line="15" selection-start-column="29" selection-end-line="15" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/screens/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="36" column="14" lean-forward="true" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#25#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -318,12 +298,49 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/screens/Dashboard.js">
+    <entry file="file://$PROJECT_DIR$/App.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="263">
-          <caret line="77" column="39" selection-start-line="77" selection-start-column="39" selection-end-line="77" selection-end-column="39" />
+        <state relative-caret-position="345">
+          <caret line="15" column="41" selection-start-line="15" selection-start-column="41" selection-end-line="15" selection-end-column="41" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/assets/circle-sqaure-life-firebase-adminsdk-l6naa-b0625cc662.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="43" selection-start-line="7" selection-start-column="43" selection-end-line="7" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/navigation/AppNavigator.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="372">
+          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="35" column="47" selection-start-line="35" selection-start-column="47" selection-end-line="35" selection-end-column="47" />
           <folding>
             <element signature="e#0#25#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/screens/Dashboard.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="491">
+          <caret line="33" column="5" lean-forward="true" selection-start-line="33" selection-start-column="5" selection-end-line="33" selection-end-column="5" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
           </folding>
         </state>
       </provider>
