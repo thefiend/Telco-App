@@ -35,7 +35,29 @@ app.get('/addon/:type', (req, res) => {
 
 app.post('/addon/subscribe/', (req, res) => {
 	//var ref = db.ref
-	res.json(req.body)
+	//res.json(req.body)
+	var value = 0;
+	
+	var ref_f = db.ref("addon/" + req.body.type);
+	ref_f.once("value", function(snapshot) {
+		snapshot.forEach(function(child) {
+			if (child.id.match(req.body.id))
+				value = snapshot.val().value
+		});
+	
+		console.log("user/"+req.body.number+"/"+req.body.addon.type);
+		var ref = db.ref("user/"+req.body.number+"/"+req.body.addon.type);
+		ref.once("value", function(snapshot) {
+			var val = snapshot.val();
+			console.log(val)
+			console.log(req.body)
+			var newvalue = parseInt(req.body.addon.value) + parseInt(val.available);
+			console.log(newvalue);
+			val.available = newvalue;
+			ref.set(val);
+			res.json(val)
+		});
+	});
 })
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
