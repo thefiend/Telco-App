@@ -23,12 +23,19 @@ export class Login extends React.Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            isLoading: false,
+            user: {}
+        }
     }
 
 
     componentDidMount() {
-
+        fetch('http://www.mocky.io/v2/5c9f38e23000000547ee993f').then(response => {
+            this.setState({
+                user: response
+            })
+        })
         // Additional component initialization can go here.
         // If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
     }
@@ -50,7 +57,7 @@ export class Login extends React.Component {
     }
 
     render() {
-
+        console.log(this.state.user);
         return (
             <SafeAreaView style={styles.SafeArea}>
                 <StatusBar barStyle={'dark-content'}/>
@@ -59,7 +66,7 @@ export class Login extends React.Component {
                     <Text style={{fontWeight: '700', fontSize: 35,}}>Circles Life</Text>
                     <Text style={{fontWeight: '500', fontSize: 20,}}>Welcome</Text>
                     <PhoneInput ref='phone'/>
-                    <Button title={'Login'} onPress={this.onLoginPressed}/>
+                    <Button loading={this.state.isLoading} title={'Login'} onPress={this.onLoginPressed}/>
                 </View>
                 <View style={styles.Main}/>
             </SafeAreaView>
@@ -67,7 +74,12 @@ export class Login extends React.Component {
     }
 
     onLoginPressed() {
-        this.props.navigation.navigate('Dashboard')
+        this.setState({
+            isLoading: true,
+        })
+        setTimeout(() => {
+            this.props.navigation.navigate('Dashboard')
+        }, 1500)
     }
 }
 
