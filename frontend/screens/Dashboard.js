@@ -1,16 +1,33 @@
-import React from "react"
-import {Dimensions, StatusBar, StyleSheet, Text, View} from "react-native"
-import {SafeAreaView} from 'react-navigation'
-import {NavbarStyles} from "../styles/navbarStyles";
-import {Button, Card, Icon} from "react-native-elements";
-import ProgressCircle from 'react-native-progress-circle'
+import React from "react";
+import { TouchableOpacity, Dimensions, StatusBar, StyleSheet, Text, View } from "react-native";
+import { SafeAreaView } from 'react-navigation';
+import { NavbarStyles } from "../styles/navbarStyles";
+import { Button, Card, Icon } from "react-native-elements";
+import ProgressCircle from 'react-native-progress-circle';
+import Slider from "react-native-slider";
+import Modal from "react-native-modal";
+import * as Progress from 'react-native-progress';
 
-const {fontScale, height, width} = Dimensions.get('window')
+
+const { fontScale, height, width } = Dimensions.get('window')
 
 export class Dashboard extends React.Component {
+    state = {
+        value: 1,
+        isModalVisible: false,
+        priceData: 2,
+        priceCalltime: 4,
+        priceSms: 6,
+        data: 0,
+        calltime: 0,
+        sms: 0,
+    };
 
-    static navigationOptions = ({navigation}) => {
-        const {params = {}} = navigation.state
+    _toggleModal = () =>
+        this.setState({ isModalVisible: !this.state.isModalVisible });
+
+    static navigationOptions = ({ navigation }) => {
+        const { params = {} } = navigation.state
         return {
             title: "My Dashboard",
             headerStyle: NavbarStyles.defaultHeaderStyle,
@@ -68,7 +85,7 @@ export class Dashboard extends React.Component {
         console.log(this.state.user)
         return (
             <SafeAreaView style={styles.SafeArea}>
-                <StatusBar barStyle={'dark-content'}/>
+                <StatusBar barStyle={'dark-content'} />
                 <View style={styles.Main}>
                     <Text style={{
                         fontSize: 35,
@@ -78,7 +95,7 @@ export class Dashboard extends React.Component {
                         marginLeft: 20,
                     }}>{this.state.user ? this.state.user.name : null}</Text>
                     <Card title={'Data'}>
-                        <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between'}}>
+                        <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-between' }}>
                             <ProgressCircle
                                 percent={30}
                                 radius={50}
@@ -93,18 +110,20 @@ export class Dashboard extends React.Component {
 
                                     }}>{this.state.user ? this.state.user.data.used : null} / {this.state.user ? this.state.user.data.avaliable : null} {this.state.user ? this.state.user.data.unit : null}</Text>
                             </ProgressCircle>
-                            <Button icon={
-                                <Icon
-                                    type={'antdesign'}
-                                    name="plus"
-                                    size={15}
-                                    color="white"
-                                />}/>
+                            <Button
+                                onPress={this._toggleModal}
+                                icon={
+                                    <Icon
+                                        type={'antdesign'}
+                                        name="plus"
+                                        size={15}
+                                        color="white"
+                                    />} />
                         </View>
                     </Card>
-                    <View style={{flexDirection: 'row',}}>
+                    <View style={{ flexDirection: 'row', }}>
                         <Card title={'SMS'}>
-                            <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between'}}>
+                            <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-between' }}>
                                 <ProgressCircle
                                     percent={30}
                                     radius={50}
@@ -114,19 +133,21 @@ export class Dashboard extends React.Component {
                                     bgColor="#fff"
                                 >
                                     <Text
-                                        style={{fontSize: 12}}>{this.state.user ? this.state.user.sms.used : null} / {this.state.user ? this.state.user.sms.avaliable : null} {this.state.user ? this.state.user.sms.unit : null}</Text>
+                                        style={{ fontSize: 12 }}>{this.state.user ? this.state.user.sms.used : null} / {this.state.user ? this.state.user.sms.avaliable : null} {this.state.user ? this.state.user.sms.unit : null}</Text>
                                 </ProgressCircle>
-                                <Button icon={
-                                    <Icon
-                                        type={'antdesign'}
-                                        name="plus"
-                                        size={15}
-                                        color="white"
-                                    />}/>
+                                <Button
+                                    onPress={this._toggleModal}
+                                    icon={
+                                        <Icon
+                                            type={'antdesign'}
+                                            name="plus"
+                                            size={15}
+                                            color="white"
+                                        />} />
                             </View>
                         </Card>
                         <Card title={'Talktime'}>
-                            <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between'}}>
+                            <View style={{ flexDirection: 'row', alignItems: "center", justifyContent: 'space-between' }}>
                                 <ProgressCircle
                                     radius={50}
                                     borderWidth={8}
@@ -135,18 +156,42 @@ export class Dashboard extends React.Component {
                                     bgColor="#fff"
                                 >
                                     <Text
-                                        style={{fontSize: 12}}>{this.state.user ? this.state.user.voice.used : null} / {this.state.user ? this.state.user.voice.avaliable : null} {this.state.user ? this.state.user.voice.unit : null}</Text>
+                                        style={{ fontSize: 12 }}>{this.state.user ? this.state.user.voice.used : null} / {this.state.user ? this.state.user.voice.avaliable : null} {this.state.user ? this.state.user.voice.unit : null}</Text>
                                 </ProgressCircle>
-                                <Button icon={
-                                    <Icon
-                                        type={'antdesign'}
-                                        name="plus"
-                                        size={15}
-                                        color="white"
-                                    />}/>
+                                <Button
+                                    onPress={this._toggleModal}
+                                    icon={
+                                        <Icon
+                                            type={'antdesign'}
+                                            name="plus"
+                                            size={15}
+                                            color="white" />} />
                             </View>
                         </Card>
+
                     </View>
+                    <Modal isVisible={this.state.isModalVisible}>
+                        <Card title={'Data Boost'}>
+                            <Button
+                                style={styles.marginTop}
+                                title="4G Boost"
+                                color="#841584"
+                                accessibilityLabel="4GB Boost"
+                            />
+                            <Button
+                                style={styles.marginTop}
+                                title="8GB Boost"
+                                color="#841584"
+                                accessibilityLabel="8GB Boost"
+                            />
+                            <Button
+                                onPress={this._toggleModal}
+                                style={styles.marginTop}
+                                title="Cancel"
+                                accessibilityLabel="Cancel"
+                            />
+                        </Card>
+                    </Modal>
                 </View>
                 {/*{this.renderSimplePicker()}*/}
             </SafeAreaView>
@@ -172,6 +217,15 @@ export class Dashboard extends React.Component {
             />
         )
     }
+
+    onDataPress() {
+        this.setState({
+            isLoading: true,
+        })
+        setTimeout(() => {
+            this.props.navigation.navigate('DataBoost')
+        }, 1500)
+    }
 }
 
 const styles = StyleSheet.create({
@@ -191,4 +245,8 @@ const styles = StyleSheet.create({
         fontSize: 16.00,
         fontFamily: "SFProDisplay-Thin"
     },
+
+    marginTop: {
+        marginTop: 16,
+    }
 })
