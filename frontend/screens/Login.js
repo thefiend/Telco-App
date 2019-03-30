@@ -25,7 +25,7 @@ export class Login extends React.Component {
         super(props);
         this.state = {
             isLoading: false,
-            user: {}
+            user: null,
         }
     }
 
@@ -33,7 +33,7 @@ export class Login extends React.Component {
     componentDidMount() {
         fetch('http://www.mocky.io/v2/5c9f38e23000000547ee993f').then(response => {
             this.setState({
-                user: response
+                user: JSON.parse(response._bodyInit)
             })
         })
         // Additional component initialization can go here.
@@ -57,7 +57,7 @@ export class Login extends React.Component {
     }
 
     render() {
-        console.log(this.state.user);
+        console.log(this.state.user ? this.state.user.data : null);
         return (
             <SafeAreaView style={styles.SafeArea}>
                 <StatusBar barStyle={'dark-content'}/>

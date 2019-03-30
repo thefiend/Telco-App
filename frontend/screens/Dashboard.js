@@ -1,8 +1,9 @@
 import React from "react"
-import {Dimensions, StatusBar, StyleSheet, View} from "react-native"
+import {Dimensions, StatusBar, StyleSheet, Text, View} from "react-native"
 import {SafeAreaView} from 'react-navigation'
 import {NavbarStyles} from "../styles/navbarStyles";
-import {Card} from "react-native-elements";
+import {Button, Card, Icon} from "react-native-elements";
+import ProgressCircle from 'react-native-progress-circle'
 
 const {fontScale, height, width} = Dimensions.get('window')
 
@@ -19,12 +20,29 @@ export class Dashboard extends React.Component {
 
     constructor(props) {
         super(props);
-
+        this.state = {
+            dashboard: null,
+            selectedOption: null,
+            user: null,
+        }
     }
 
 
     componentDidMount() {
-
+        fetch('http://www.mocky.io/v2/5c9f38e23000000547ee993f').then(response => {
+            this.setState({
+                user: JSON.parse(response._bodyInit)
+            })
+        })
+        fetch('http://www.mocky.io/v2/5c9f3cb1300000e54eee9947').then(res => {
+            this.setState({
+                dashboard: JSON.parse(res._bodyInit)
+            }, () => {
+                this.setState({
+                    selectedOption: this.state.dashboard[0]
+                })
+            })
+        })
         // Additional component initialization can go here.
         // If you need to load data from a remote endpoint, this is a good place to instantiate the network request.
     }
@@ -46,20 +64,112 @@ export class Dashboard extends React.Component {
     }
 
     render() {
-
+        console.log(this.state.selectedOption)
+        console.log(this.state.user)
         return (
             <SafeAreaView style={styles.SafeArea}>
                 <StatusBar barStyle={'dark-content'}/>
                 <View style={styles.Main}>
-                    <Card title={'Data'}/>
-                    <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
-                        <Card title={'Data'}>
+                    <Text style={{
+                        fontSize: 35,
+                        fontWeight: '700',
+                        marginTop: 20,
+                        marginBottom: 20,
+                        marginLeft: 20,
+                    }}>{this.state.user ? this.state.user.name : null}</Text>
+                    <Card title={'Data'}>
+                        <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between'}}>
+                            <ProgressCircle
+                                percent={30}
+                                radius={50}
+                                borderWidth={8}
+                                color="#3399FF"
+                                shadowColor="#999"
+                                bgColor="#fff"
+                            >
+                                <Text
+                                    style={{
+                                        fontSize: 12,
 
+                                    }}>{this.state.user ? this.state.user.data.used : null} / {this.state.user ? this.state.user.data.avaliable : null} {this.state.user ? this.state.user.data.unit : null}</Text>
+                            </ProgressCircle>
+                            <Button icon={
+                                <Icon
+                                    type={'antdesign'}
+                                    name="plus"
+                                    size={15}
+                                    color="white"
+                                />}/>
+                        </View>
+                    </Card>
+                    <View style={{flexDirection: 'row',}}>
+                        <Card title={'SMS'}>
+                            <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between'}}>
+                                <ProgressCircle
+                                    percent={30}
+                                    radius={50}
+                                    borderWidth={8}
+                                    color="#3399FF"
+                                    shadowColor="#999"
+                                    bgColor="#fff"
+                                >
+                                    <Text
+                                        style={{fontSize: 12}}>{this.state.user ? this.state.user.sms.used : null} / {this.state.user ? this.state.user.sms.avaliable : null} {this.state.user ? this.state.user.sms.unit : null}</Text>
+                                </ProgressCircle>
+                                <Button icon={
+                                    <Icon
+                                        type={'antdesign'}
+                                        name="plus"
+                                        size={15}
+                                        color="white"
+                                    />}/>
+                            </View>
                         </Card>
-                        <Card title={'Data'}/>
+                        <Card title={'Talktime'}>
+                            <View style={{flexDirection: 'row', alignItems: "center", justifyContent: 'space-between'}}>
+                                <ProgressCircle
+                                    radius={50}
+                                    borderWidth={8}
+                                    color="#3399FF"
+                                    shadowColor="#999"
+                                    bgColor="#fff"
+                                >
+                                    <Text
+                                        style={{fontSize: 12}}>{this.state.user ? this.state.user.voice.used : null} / {this.state.user ? this.state.user.voice.avaliable : null} {this.state.user ? this.state.user.voice.unit : null}</Text>
+                                </ProgressCircle>
+                                <Button icon={
+                                    <Icon
+                                        type={'antdesign'}
+                                        name="plus"
+                                        size={15}
+                                        color="white"
+                                    />}/>
+                            </View>
+                        </Card>
                     </View>
                 </View>
+                {/*{this.renderSimplePicker()}*/}
             </SafeAreaView>
+        )
+    }
+
+    renderSimplePicker() {
+        return (
+            <SimplePicker
+                ref={'picker2'}
+                options={this.state.dashboard}
+                itemStyle={{
+                    fontSize: 25,
+                    color: 'red',
+                    textAlign: 'left',
+                    fontWeight: 'bold',
+                }}
+                onSubmit={(option) => {
+                    this.setState({
+                        selectedOption: option,
+                    });
+                }}
+            />
         )
     }
 }
