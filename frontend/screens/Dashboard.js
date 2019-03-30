@@ -51,7 +51,13 @@ export class Dashboard extends React.Component {
             <SafeAreaView style={styles.SafeArea}>
                 <StatusBar barStyle={'dark-content'}/>
                 <View style={styles.Main}>
-<Card title={''}/>
+                    <Card title={'Data'}/>
+                    <View style={{flex: 1, flexDirection: 'row', justifyContent: 'space-between'}}>
+                        <Card title={'Data'}>
+
+                        </Card>
+                        <Card title={'Data'}/>
+                    </View>
                 </View>
             </SafeAreaView>
         )
