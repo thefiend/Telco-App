@@ -30,9 +30,9 @@ app.get('/getUserObject', (req,res)=> {
 
 });
 
-app.get('/dashboard/:number', (req, res) => {
+app.get('/dashboard/:user', (req, res) => {
   var newRef = db.ref("user");
-  newRef = newRef.child("91234567");
+  newRef = newRef.child(req.params.user);
   newRef.on('value', function(snapshot){
     res.json(snapshot.val());
     
